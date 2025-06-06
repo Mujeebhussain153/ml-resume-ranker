@@ -25,7 +25,7 @@ def extract_text_from_docx(filename: str):
 # This Function is a passthrough function that decides which function to execute based on the file type provided
 def extract_resume_content(filepath: str):
     try:
-        extension = os.path.splitext(filepath)
+        extension = os.path.splitext(filepath)[-1].lower()
         if extension == ".pdf":
             return extract_text_from_pdf(filepath)
         elif extension == ".docx":
