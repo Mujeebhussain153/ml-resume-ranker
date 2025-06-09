@@ -7,7 +7,7 @@ router = APIRouter()
 @router.post("/parse-resume")
 async def parse_resume(file:UploadFile = File(...)):
     try:
-        save_path = f"..\\temp\{file.filename}"
+        save_path = f"..\\temp\\{file.filename}"
         with open(save_path, "wb") as f:
             f.write(await file.read())
         raw_text = extract_resume_content(save_path)
