@@ -8,11 +8,14 @@ const FileUploadForm = () =>{
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
 
         e.preventDefault()
-        if(!jdFile || resumeFiles.length === 0){
-            alert("Please Provide a job description and atleast a single resume")
+        if(!jdFile){
+            alert("Please Provide a job description")
+            return
+        }else if(resumeFiles.length === 0){
+            alert("Please Provide atleast a single resume")
             return
         }
         //constructing a set of key/value pairs representing the fields and values of the form
@@ -24,10 +27,9 @@ const FileUploadForm = () =>{
         setLoading(true);
 
         try{
-            const res = AXInstance.post('/rank-resumes', formData, {
-                headers: { 'Content-Type': 'multipart/form-data' }
-            })
+            const res = await AXInstance.post('/rank-resumes', formData)
             setResults(res.data.ranked_resumes)
+            console.log(res.data.ranked_resumes)
         }catch (error) {
             console.error(error);
             alert('Something went wrong while uploading.');
@@ -35,12 +37,11 @@ const FileUploadForm = () =>{
             setLoading(false); // Stop loading
         }
     }
-
     return(
         <div className="p-4">
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                    <label className="font-medium">Job Description File:</label>
+                    <label className="font-medium">Job Description File: </label>
                     <input
                         type="file"
                         accept=".pdf,.docx"

@@ -15,11 +15,10 @@ const ResultTable = ({ results }) => {
             <th className="border px-4 py-2">Score</th>
           </tr>
         </thead>
-
         <tbody>
           {results.map((r, i) => (
             <tr key={r.filename}>
-              <td className="border px-4 py-2">{i + 1}</td>        {/* Rank */}
+              <td className="border px-4 py-2">{i+1}</td>        {/* Rank */}
               <td className="border px-4 py-2">{r.filename}</td>   {/* Filename */}
               <td className="border px-4 py-2">{r.score}</td>      {/* Score */}
             </tr>
