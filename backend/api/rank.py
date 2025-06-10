@@ -1,5 +1,5 @@
 from fastapi import APIRouter, UploadFile, File  # FastAPI utilities for file uploads
-from ..utils.resume_parser import extract_resume_text
+from ..utils.resume_parser import extract_resume_content
 from ..utils.text_preprocessor import clean_text
 from ..utils.ranker import rank_resumes
 
@@ -16,7 +16,7 @@ async def rank_resumes_endpoint(
         f.write(await jd_file.read())
 
     # Extract and clean text from JD
-    jd_text = clean_text(extract_resume_text(jd_path))
+    jd_text = clean_text(extract_resume_content(jd_path))
 
     resumes = []
 
@@ -26,7 +26,7 @@ async def rank_resumes_endpoint(
         with open(path, "wb") as f:
             f.write(await file.read())              # Save file to disk
 
-        raw = extract_resume_text(path)             # Extract raw text from file
+        raw = extract_resume_content(path)             # Extract raw text from file
         cleaned = clean_text(raw)                   # Clean the extracted text
 
         resumes.append({
