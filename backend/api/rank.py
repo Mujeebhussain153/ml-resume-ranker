@@ -2,17 +2,16 @@ from fastapi import APIRouter, UploadFile, File  # FastAPI utilities for file up
 from ..utils.resume_parser import extract_resume_text
 from ..utils.text_preprocessor import clean_text
 from ..utils.ranker import rank_resumes
-import os
 
 router = APIRouter()
 
-@router.post("/rank-resumes/")
+@router.post("/rank-resumes")
 async def rank_resumes_endpoint(
     jd_file: UploadFile = File(...),                # Job Description file (PDF or DOCX)
     resume_files: list[UploadFile] = File(...)      # List of resumes to rank
 ):
     # Save the uploaded JD file to temp/ folder
-    jd_path = f"temp/{jd_file.filename}"
+    jd_path = f"..\\temp\\{jd_file.filename}"
     with open(jd_path, "wb") as f:
         f.write(await jd_file.read())
 
@@ -23,7 +22,7 @@ async def rank_resumes_endpoint(
 
     # Loop over each uploaded resume file
     for file in resume_files:
-        path = f"temp/{file.filename}"              # Save path
+        path = f"..\\temp\\{file.filename}"              # Save path
         with open(path, "wb") as f:
             f.write(await file.read())              # Save file to disk
 
