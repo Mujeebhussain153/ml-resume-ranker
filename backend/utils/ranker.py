@@ -28,7 +28,6 @@ def rank_resumes(job_desc, resumes):
 
         # Compute cosine similarity between JD and each resume
         scores = cosine_similarity(job_vec, resume_vecs)[0]
-
         # Zip resumes with their corresponding similarity scores
         ranked = sorted(
             zip(resumes, scores),
@@ -37,7 +36,7 @@ def rank_resumes(job_desc, resumes):
         )
 
         # Format results as list of {filename, score}
-        return [{"filename": r["filename"], "score": round(score, 4)} for r, score in ranked]
+        return [{"filename": r["filename"], "score": round(score*100, 2)} for r, score in ranked]
     except Exception as e:
         print(e)
         return

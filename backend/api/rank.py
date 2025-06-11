@@ -1,6 +1,5 @@
 from fastapi import APIRouter, UploadFile, File  # FastAPI utilities for file uploads
 from backend.utils.resume_parser import extract_resume_content
-# from ..utils.resume_parser import extract_resume_content
 from ..utils.text_preprocessor import clean_text
 from ..utils.ranker import rank_resumes
 
