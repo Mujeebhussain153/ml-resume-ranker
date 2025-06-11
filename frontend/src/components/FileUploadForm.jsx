@@ -29,7 +29,6 @@ const FileUploadForm = () =>{
         try{
             const res = await AXInstance.post('/rank-resumes', formData)
             setResults(res.data.ranked_resumes)
-            console.log(res.data.ranked_resumes)
         }catch (error) {
             console.error(error);
             alert('Something went wrong while uploading.');
@@ -65,6 +64,7 @@ const FileUploadForm = () =>{
                     {loading ? 'Ranking...' : 'Rank Resumes'} {/* Show loading text */}
                 </button>
             </form>
+            
             {results.length > 0 && <ResultTable results={results} />}
         </div>
     )
