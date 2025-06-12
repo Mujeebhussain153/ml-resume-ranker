@@ -38,28 +38,30 @@ const FileUploadForm = () =>{
     }
     return(
         <div className="p-4">
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 flex flex-col gap-2">
                 <div>
                     <label className="font-medium">Job Description File: </label>
                     <input
                         type="file"
                         accept=".pdf,.docx"
                         onChange={e => setJdFile(e.target.files[0])} // Save file to state
+                        className="file:cursor-pointer file:px-4 file:py-1 file:rounded file:border-0 file:bg-blue-500 file:text-white file:font-medium hover:file:bg-blue-700 transition"
                     />
                 </div>
                 <div>
-                    <label className="font-medium">Resume Files (multiple):</label>
+                    <label className="font-medium">Resume Files (multiple): </label>
                     <input
                         type="file"
                         accept=".pdf,.docx"
                         multiple
-                        onChange={e => setResumeFiles([...e.target.files])} // Save all files to state
+                        onChange={e => setResumeFiles([...e.target.files])}
+                        className="file:cursor-pointer file:px-4 file:py-1 file:rounded file:border-0 file:bg-blue-500 file:text-white file:font-medium hover:file:bg-blue-700 transition" // Save all files to state
                     />
                 </div>
                 <button
                     type="submit"
                     disabled={loading}
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
+                    className="bg-blue-500 w-1/8 text-white px-4 py-1 rounded"
                     >
                     {loading ? 'Ranking...' : 'Rank Resumes'} {/* Show loading text */}
                 </button>
