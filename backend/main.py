@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .api import resume, rank
+from .api import resume, rank, preview
 
 # Creating the Fast API Object
 app = FastAPI()
@@ -22,3 +22,4 @@ def read_root():
 
 app.include_router(resume.router, prefix="/api")
 app.include_router(rank.router, prefix="/api")
+app.include_router(preview.router, prefix="/api")
