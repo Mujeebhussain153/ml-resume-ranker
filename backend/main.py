@@ -5,7 +5,7 @@ from .api import resume, rank, preview
 # Creating the Fast API Object
 app = FastAPI()
 
-origins = ["http://localhost:5173"]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
