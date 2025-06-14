@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CSVLink } from 'react-csv'
 import ResumePreview from './ResumePreview';
 
 const ResultTable = ({ results }) => {
 
     const [resultsCopy, setResultsCopy] = useState(results)
+    useEffect(() => {
+      setResultsCopy(results), [results]
+    })
     const [selectedResume, setSelectedResume] = useState(null)
   return (
     <div className="mt-6">

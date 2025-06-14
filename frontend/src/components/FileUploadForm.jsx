@@ -66,7 +66,7 @@ const FileUploadForm = () =>{
                     {loading ? 'Ranking...' : 'Rank Resumes'} {/* Show loading text */}
                 </button>
             </form>
-            
+            {console.log(results, "TETSINHAM")}
             {results.length > 0 && <ResultTable results={results} />}
         </div>
     )
