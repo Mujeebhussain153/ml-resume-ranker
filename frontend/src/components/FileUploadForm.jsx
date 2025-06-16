@@ -45,7 +45,7 @@ const FileUploadForm = () =>{
                         type="file"
                         accept=".pdf,.docx"
                         onChange={e => setJdFile(e.target.files[0])} // Save file to state
-                        className="file:cursor-pointer file:px-2 ml-9 file:py-1 file:rounded file:border-0 file:bg-blue-500 file:text-white file:font-medium hover:file:bg-blue-700 transition"
+                        className="file:cursor-pointer file:px-2 ml-9 file:py-1 file:rounded file:border-0 file:bg-orange-500 file:text-white file:font-medium hover:file:bg-orange-700 transition"
                     />
                 </div>
                 <div>
@@ -55,13 +55,13 @@ const FileUploadForm = () =>{
                         accept=".pdf,.docx"
                         multiple
                         onChange={e => setResumeFiles([...e.target.files])}
-                        className="file:cursor-pointer file:px-2 ml-2 file:py-1 file:rounded file:border-0 file:bg-blue-500 file:text-white file:font-medium hover:file:bg-blue-700 transition" // Save all files to state
+                        className="file:cursor-pointer file:px-2 ml-2 file:py-1 file:rounded file:border-0 file:bg-orange-500 file:text-white file:font-medium hover:file:bg-orange-700 transition" // Save all files to state
                     />
                 </div>
                 <button
                     type="submit"
                     disabled={loading}
-                    className="bg-blue-500 w-1/8 text-white px-4 py-1 rounded"
+                    className="bg-orange-400 w-1/8 text-white px-4 py-1 rounded"
                     >
                     {loading ? 'Ranking...' : 'Rank Resumes'} {/* Show loading text */}
                 </button>

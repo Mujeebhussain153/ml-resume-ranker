@@ -11,7 +11,7 @@ const ResultTable = ({ results }) => {
     const [selectedResume, setSelectedResume] = useState(null)
   return (
     <div className="mt-6">
-      <h2 className="text-xl font-semibold mb-2 text-center text-shadow-lg">Ranked Resumes</h2>
+      <h2 className="text-xl font-semibold mb-2 text-center text-shadow-lg text-shadow-red-170">Ranked Resumes</h2>
       <div className='flex justify-end mt-2'>
         <CSVLink data={resultsCopy} filename='results.csv' className='text-sm bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition'>
           Export CSV
@@ -24,8 +24,8 @@ const ResultTable = ({ results }) => {
       }}
       className="w-full mb-4 mt-4 p-2 border border-gray-300 rounded"
       />
-      <table className="min-w-full border border-gray-300 text-left">
-        <thead className="bg-gray-100">
+      <table className="min-w-full borderborder-gray-300 text-left">
+        <thead className="bg-gray-100 text-black">
           <tr>
             <th className="border px-4 py-2">Rank</th>
             <th className="border px-4 py-2">Filename</th>
